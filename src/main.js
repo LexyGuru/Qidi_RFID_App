@@ -59,6 +59,14 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // Load technical specs
 async function loadSpecs() {
     try {
+        // Set loading text
+        const loadingText = window.i18n ? window.i18n.t('specs.loading') : 'Loading...';
+        document.getElementById('protocol').textContent = loadingText;
+        document.getElementById('frequency').textContent = loadingText;
+        document.getElementById('baud-rate').textContent = loadingText;
+        document.getElementById('distance').textContent = loadingText;
+        document.getElementById('encryption').textContent = loadingText;
+        
         const specs = await invoke('get_rfid_specs');
         document.getElementById('protocol').textContent = specs.protocol;
         document.getElementById('frequency').textContent = specs.frequency;
@@ -67,6 +75,12 @@ async function loadSpecs() {
         document.getElementById('encryption').textContent = specs.encryption;
     } catch (error) {
         console.error('Error loading specs:', error);
+        const errorText = window.i18n ? window.i18n.t('errors.readError') : 'Error loading';
+        document.getElementById('protocol').textContent = errorText;
+        document.getElementById('frequency').textContent = errorText;
+        document.getElementById('baud-rate').textContent = errorText;
+        document.getElementById('distance').textContent = errorText;
+        document.getElementById('encryption').textContent = errorText;
     }
 }
 

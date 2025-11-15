@@ -61,6 +61,7 @@
     "baudRate": "Communication Baud Rate",
     "distance": "Operating Distance",
     "encryption": "Encryption Algorithm",
+    "loading": "Loading...",
     "memoryStructure": "EEPROM Memory Structure",
     "memoryDescription": "The EEPROM is divided into <strong>16 sectors</strong>, each consisting of <strong>4 data blocks</strong>, with each block containing <strong>16 bytes</strong>.",
     "manufacturerBlock": "Manufacturer Block",
@@ -80,18 +81,29 @@
   },
   "materials": {
     "search": "Search materials...",
-    "title": "Material Codes"
+    "title": "Material Codes",
+    "code": "Code",
+    "name": "Name"
   },
   "colors": {
     "search": "Search colors...",
-    "title": "Color Codes"
+    "title": "Color Codes",
+    "code": "Code",
+    "name": "Name",
+    "hex": "Hex"
   },
   "structure": {
     "title": "Memory Layout",
     "sectorStructure": "Sector Structure",
     "sector": "Sector",
+    "sector0": "Sector 0",
+    "sector1": "Sector 1",
     "sectors": "Sectors 2-15",
     "block": "Block",
+    "block0": "Block 0",
+    "block1": "Block 1",
+    "block2": "Block 2",
+    "block3": "Block 3",
     "manufacturer": "Manufacturer",
     "data": "Data",
     "control": "Control",

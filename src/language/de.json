@@ -61,6 +61,7 @@
     "baudRate": "Kommunikations-Baudrate",
     "distance": "Betriebsabstand",
     "encryption": "Verschlüsselungsalgorithmus",
+    "loading": "Laden...",
     "memoryStructure": "EEPROM-Speicherstruktur",
     "memoryDescription": "Das EEPROM ist in <strong>16 Sektoren</strong> unterteilt, jeder besteht aus <strong>4 Datenblöcken</strong>, wobei jeder Block <strong>16 Bytes</strong> enthält.",
     "manufacturerBlock": "Herstellerblock",
@@ -80,18 +81,29 @@
   },
   "materials": {
     "search": "Materialien suchen...",
-    "title": "Materialcodes"
+    "title": "Materialcodes",
+    "code": "Code",
+    "name": "Name"
   },
   "colors": {
     "search": "Farben suchen...",
-    "title": "Farbcodes"
+    "title": "Farbcodes",
+    "code": "Code",
+    "name": "Name",
+    "hex": "Hex"
   },
   "structure": {
     "title": "Speicherlayout",
     "sectorStructure": "Sektorstruktur",
     "sector": "Sektor",
+    "sector0": "Sektor 0",
+    "sector1": "Sektor 1",
     "sectors": "Sektoren 2-15",
     "block": "Block",
+    "block0": "Block 0",
+    "block1": "Block 1",
+    "block2": "Block 2",
+    "block3": "Block 3",
     "manufacturer": "Hersteller",
     "data": "Daten",
     "control": "Steuerung",

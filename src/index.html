@@ -144,23 +144,23 @@
                     <div class="specs-grid">
                         <div class="spec-card">
                             <h3 data-i18n="specs.protocol">Communication Protocol</h3>
-                            <p id="protocol">Loading...</p>
+                            <p id="protocol" data-i18n="specs.loading">Loading...</p>
                         </div>
                         <div class="spec-card">
                             <h3 data-i18n="specs.frequency">Operating Frequency</h3>
-                            <p id="frequency">Loading...</p>
+                            <p id="frequency" data-i18n="specs.loading">Loading...</p>
                         </div>
                         <div class="spec-card">
                             <h3 data-i18n="specs.baudRate">Communication Baud Rate</h3>
-                            <p id="baud-rate">Loading...</p>
+                            <p id="baud-rate" data-i18n="specs.loading">Loading...</p>
                         </div>
                         <div class="spec-card">
                             <h3 data-i18n="specs.distance">Operating Distance</h3>
-                            <p id="distance">Loading...</p>
+                            <p id="distance" data-i18n="specs.loading">Loading...</p>
                         </div>
                         <div class="spec-card">
                             <h3 data-i18n="specs.encryption">Encryption Algorithm</h3>
-                            <p id="encryption">Loading...</p>
+                            <p id="encryption" data-i18n="specs.loading">Loading...</p>
                         </div>
                     </div>
                 </section>
@@ -211,6 +211,7 @@
 
             <!-- Material Codes Tab -->
             <div id="materials" class="tab-content">
+                <h2 data-i18n="materials.title">Material Codes</h2>
                 <div class="search-box">
                     <input type="text" id="material-search" data-i18n-placeholder="materials.search" placeholder="Search materials...">
                 </div>
@@ -221,6 +222,7 @@
 
             <!-- Color Codes Tab -->
             <div id="colors" class="tab-content">
+                <h2 data-i18n="colors.title">Color Codes</h2>
                 <div class="search-box">
                     <input type="text" id="color-search" data-i18n-placeholder="colors.search" placeholder="Search colors...">
                 </div>
@@ -237,30 +239,30 @@
                         <div class="sector-group">
                             <h3 data-i18n="structure.sectorStructure">Sector Structure</h3>
                             <div class="sector">
-                                <div class="sector-header" data-i18n="structure.sector">Sector 0</div>
+                                <div class="sector-header" data-i18n="structure.sector0">Sector 0</div>
                                 <div class="blocks">
-                                    <div class="block manufacturer" data-i18n="structure.block">Block 0<br><small data-i18n="structure.manufacturer">Manufacturer</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                    <div class="block manufacturer"><span data-i18n="structure.block0">Block 0</span><br><small data-i18n="structure.manufacturer">Manufacturer</small></div>
+                                    <div class="block data"><span data-i18n="structure.block1">Block 1</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data"><span data-i18n="structure.block2">Block 2</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control"><span data-i18n="structure.block3">Block 3</span><br><small data-i18n="structure.control">Control</small></div>
                                 </div>
                             </div>
                             <div class="sector highlight">
-                                <div class="sector-header" data-i18n="structure.sector">Sector 1 ⭐</div>
+                                <div class="sector-header"><span data-i18n="structure.sector1">Sector 1</span> ⭐</div>
                                 <div class="blocks">
-                                    <div class="block data highlight-block" data-i18n="structure.block">Block 0<br><small data-i18n="structure.rfidData">RFID Data</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                    <div class="block data highlight-block"><span data-i18n="structure.block0">Block 0</span><br><small data-i18n="structure.rfidData">RFID Data</small></div>
+                                    <div class="block data"><span data-i18n="structure.block1">Block 1</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data"><span data-i18n="structure.block2">Block 2</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control"><span data-i18n="structure.block3">Block 3</span><br><small data-i18n="structure.control">Control</small></div>
                                 </div>
                             </div>
                             <div class="sector">
                                 <div class="sector-header" data-i18n="structure.sectors">Sectors 2-15</div>
                                 <div class="blocks">
-                                    <div class="block data" data-i18n="structure.block">Block 0<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
-                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                    <div class="block data"><span data-i18n="structure.block0">Block 0</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data"><span data-i18n="structure.block1">Block 1</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data"><span data-i18n="structure.block2">Block 2</span><br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control"><span data-i18n="structure.block3">Block 3</span><br><small data-i18n="structure.control">Control</small></div>
                                 </div>
                             </div>
                         </div>
