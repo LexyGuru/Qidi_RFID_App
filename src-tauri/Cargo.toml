@@ -1,0 +1,23 @@
+[package]
+name = "qidi-rfid-app"
+version = "0.1.0"
+description = "RFID Tag Guide for QIDI BOX"
+authors = ["Lekszikov Miklós"]
+license = "MIT"
+repository = "https://github.com/LexyGuru/Qidi_RFID_App"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+pcsc = "2.9"
+hex = "0.4"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+

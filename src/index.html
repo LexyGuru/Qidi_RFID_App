@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID Tag Guide for QIDI BOX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <div style="flex: 1;"></div>
+                <div class="language-selector-wrapper" style="position: relative;">
+                    <div class="custom-select" id="language-select">
+                        <div class="custom-select-trigger">
+                            <span class="custom-select-value">🌐</span>
+                            <span class="custom-select-arrow">▼</span>
+                        </div>
+                        <div class="custom-select-options" id="language-options">
+                            <!-- Languages will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 data-i18n="app.title">RFID Tag Guide for QIDI BOX</h1>
+            <p class="subtitle" data-i18n="app.subtitle">FM11RF08S Chip Documentation</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="write" data-i18n="tabs.write">Chip Írás/Olvasás</button>
+            <button class="tab-btn" data-tab="specs" data-i18n="tabs.specs">Technical Specs</button>
+            <button class="tab-btn" data-tab="materials" data-i18n="tabs.materials">Material Codes</button>
+            <button class="tab-btn" data-tab="colors" data-i18n="tabs.colors">Color Codes</button>
+            <button class="tab-btn" data-tab="structure" data-i18n="tabs.structure">Memory Structure</button>
+        </nav>
+
+        <main>
+            <!-- Write/Read Tab -->
+            <div id="write" class="tab-content active">
+                <section class="write-section">
+                    <h2 data-i18n="write.title">RFID Chip Írás és Olvasás</h2>
+                    
+                    <!-- Reader Status -->
+                    <div class="status-card">
+                        <h3 data-i18n="write.readerStatus.title">Olvasó Státusz</h3>
+                        <div id="reader-status" class="status-info">
+                            <div class="status-item">
+                                <span class="status-label" data-i18n="write.readerStatus.connection">Kapcsolat:</span>
+                                <span id="status-connected" class="status-value">Ellenőrzés...</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label" data-i18n="write.readerStatus.reader">Olvasó:</span>
+                                <span id="status-reader" class="status-value">-</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label" data-i18n="write.readerStatus.card">Kártya:</span>
+                                <span id="status-card" class="status-value">-</span>
+                            </div>
+                            <div id="status-error" class="status-error" style="display: none;"></div>
+                        </div>
+                        <button id="check-status-btn" class="btn btn-primary" data-i18n="write.readerStatus.refresh">Státusz Frissítés</button>
+                    </div>
+
+                    <!-- Read Section -->
+                    <div class="action-card">
+                        <h3 data-i18n="write.read.title">Chip Olvasása</h3>
+                        <p data-i18n="write.read.description">Olvassa ki a chip aktuális értékeit</p>
+                        <button id="read-btn" class="btn btn-secondary" data-i18n="write.read.button">Chip Olvasása</button>
+                        <div id="read-result" class="result-box" style="display: none;">
+                            <h4 data-i18n="write.read.results.title">Olvasott Adatok:</h4>
+                            <div class="read-data">
+                                <div class="data-row">
+                                    <span class="data-label" data-i18n="write.read.results.material">Anyagkód:</span>
+                                    <span id="read-material" class="data-value">-</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label" data-i18n="write.read.results.color">Színkód:</span>
+                                    <span id="read-color" class="data-value">-</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label" data-i18n="write.read.results.manufacturer">Gyártói kód:</span>
+                                    <span id="read-manufacturer" class="data-value">-</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label" data-i18n="write.read.results.uid">UID:</span>
+                                    <span id="read-uid" class="data-value">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Write Section -->
+                    <div class="action-card">
+                        <h3 data-i18n="write.write.title">Chip Írása</h3>
+                        <p data-i18n="write.write.description">Állítsa be az anyag- és színkódot, majd írja a chipre</p>
+                        
+                        <div class="form-group">
+                            <label for="material-select" data-i18n="write.write.materialLabel">Anyagkód:</label>
+                            <div class="custom-select-wrapper">
+                                <div class="custom-select" id="material-select">
+                                    <div class="custom-select-trigger">
+                                        <span class="custom-select-value" data-i18n="write.write.materialPlaceholder">Válasszon anyagot...</span>
+                                        <span class="custom-select-arrow">▼</span>
+                                    </div>
+                                    <div class="custom-select-options" id="material-options">
+                                        <!-- Options will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color-select" data-i18n="write.write.colorLabel">Színkód:</label>
+                            <div class="custom-select-wrapper">
+                                <div class="custom-select" id="color-select">
+                                    <div class="custom-select-trigger">
+                                        <span class="custom-select-value" data-i18n="write.write.colorPlaceholder">Válasszon színt...</span>
+                                        <span class="custom-select-arrow">▼</span>
+                                    </div>
+                                    <div class="custom-select-options" id="color-options">
+                                        <!-- Options will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="color-preview" class="color-preview"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="manufacturer-input" data-i18n="write.write.manufacturerLabel">Gyártói kód (opcionális, alapértelmezett: 1):</label>
+                            <input type="number" id="manufacturer-input" class="form-control" min="1" max="255" value="1">
+                        </div>
+
+                        <button id="write-btn" class="btn btn-success" data-i18n="write.write.button">Chip Írása</button>
+                        <div id="write-result" class="result-box" style="display: none;"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Technical Specifications Tab -->
+            <div id="specs" class="tab-content">
+                <section class="specs-section">
+                    <h2 data-i18n="specs.rfInterface">Radio Frequency (RF) Interface</h2>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h3 data-i18n="specs.protocol">Communication Protocol</h3>
+                            <p id="protocol">Loading...</p>
+                        </div>
+                        <div class="spec-card">
+                            <h3 data-i18n="specs.frequency">Operating Frequency</h3>
+                            <p id="frequency">Loading...</p>
+                        </div>
+                        <div class="spec-card">
+                            <h3 data-i18n="specs.baudRate">Communication Baud Rate</h3>
+                            <p id="baud-rate">Loading...</p>
+                        </div>
+                        <div class="spec-card">
+                            <h3 data-i18n="specs.distance">Operating Distance</h3>
+                            <p id="distance">Loading...</p>
+                        </div>
+                        <div class="spec-card">
+                            <h3 data-i18n="specs.encryption">Encryption Algorithm</h3>
+                            <p id="encryption">Loading...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="memory-section">
+                    <h2 data-i18n="specs.memoryStructure">EEPROM Memory Structure</h2>
+                    <div class="info-box">
+                        <p data-i18n-html="specs.memoryDescription">The EEPROM is divided into <strong>16 sectors</strong>, each consisting of <strong>4 data blocks</strong>, with each block containing <strong>16 bytes</strong>.</p>
+                    </div>
+                    <div class="block-types">
+                        <div class="block-type">
+                            <h3 data-i18n="specs.manufacturerBlock">Manufacturer Block</h3>
+                            <p data-i18n="specs.manufacturerBlockDesc">Stores manufacturer code</p>
+                            <span class="badge read-only" data-i18n="specs.readOnly">Read-only</span>
+                        </div>
+                        <div class="block-type">
+                            <h3 data-i18n="specs.controlBlock">Control Block</h3>
+                            <p data-i18n="specs.controlBlockDesc">Password A, Access Control, Password B</p>
+                            <span class="badge read-write" data-i18n="specs.readWrite">Readable and writable</span>
+                        </div>
+                        <div class="block-type">
+                            <h3 data-i18n="specs.dataBlock">Data Block</h3>
+                            <p data-i18n="specs.dataBlockDesc">Stores user data</p>
+                            <span class="badge read-write" data-i18n="specs.readWrite">Readable and writable</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="storage-section">
+                    <h2 data-i18n="specs.storage">RFID Data Storage</h2>
+                    <div class="info-box">
+                        <p data-i18n-html="specs.storageDescription">RFID data is stored in the <strong>4th data block</strong> (Sector 1, Block 0)</p>
+                        <div class="data-structure">
+                            <div class="data-bit">
+                                <strong data-i18n="specs.materialCode">bit[0] - Material Code (1~50)</strong>
+                            </div>
+                            <div class="data-bit">
+                                <strong data-i18n="specs.colorCode">bit[1] - Color Code (1~24)</strong>
+                            </div>
+                            <div class="data-bit">
+                                <strong data-i18n="specs.manufacturerCode">bit[2] - Manufacturer Code (Default: 1)</strong>
+                            </div>
+                        </div>
+                        <p class="note" data-i18n="specs.hexEncoding">Hexadecimal encoding</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Material Codes Tab -->
+            <div id="materials" class="tab-content">
+                <div class="search-box">
+                    <input type="text" id="material-search" data-i18n-placeholder="materials.search" placeholder="Search materials...">
+                </div>
+                <div id="materials-grid" class="materials-grid">
+                    <!-- Materials will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Color Codes Tab -->
+            <div id="colors" class="tab-content">
+                <div class="search-box">
+                    <input type="text" id="color-search" data-i18n-placeholder="colors.search" placeholder="Search colors...">
+                </div>
+                <div id="colors-grid" class="colors-grid">
+                    <!-- Colors will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Memory Structure Tab -->
+            <div id="structure" class="tab-content">
+                <section class="structure-section">
+                    <h2 data-i18n="structure.title">Memory Layout</h2>
+                    <div class="memory-visualization">
+                        <div class="sector-group">
+                            <h3 data-i18n="structure.sectorStructure">Sector Structure</h3>
+                            <div class="sector">
+                                <div class="sector-header" data-i18n="structure.sector">Sector 0</div>
+                                <div class="blocks">
+                                    <div class="block manufacturer" data-i18n="structure.block">Block 0<br><small data-i18n="structure.manufacturer">Manufacturer</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                </div>
+                            </div>
+                            <div class="sector highlight">
+                                <div class="sector-header" data-i18n="structure.sector">Sector 1 ⭐</div>
+                                <div class="blocks">
+                                    <div class="block data highlight-block" data-i18n="structure.block">Block 0<br><small data-i18n="structure.rfidData">RFID Data</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                </div>
+                            </div>
+                            <div class="sector">
+                                <div class="sector-header" data-i18n="structure.sectors">Sectors 2-15</div>
+                                <div class="blocks">
+                                    <div class="block data" data-i18n="structure.block">Block 0<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 1<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block data" data-i18n="structure.block">Block 2<br><small data-i18n="structure.data">Data</small></div>
+                                    <div class="block control" data-i18n="structure.block">Block 3<br><small data-i18n="structure.control">Control</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <h3 data-i18n="structure.legend">Legend</h3>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="block manufacturer"></span>
+                                <span data-i18n="structure.manufacturerBlockLegend">Manufacturer Block (Read-only)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="block data"></span>
+                                <span data-i18n="structure.dataBlockLegend">Data Block (Read/Write)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="block control"></span>
+                                <span data-i18n="structure.controlBlockLegend">Control Block (Read/Write)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="block highlight-block"></span>
+                                <span data-i18n="structure.rfidDataLocation">RFID Data Storage Location</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

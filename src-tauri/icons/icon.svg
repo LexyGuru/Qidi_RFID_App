@@ -1,0 +1,6 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#2563eb"/>
+  <rect x="50" y="50" width="412" height="412" fill="#ffffff" stroke="#000000" stroke-width="10"/>
+  <rect x="70" y="70" width="372" height="372" fill="#2563eb"/>
+  <text x="256" y="280" font-family="Arial" font-size="80" font-weight="bold" fill="#ffffff" text-anchor="middle">QIDI</text>
+</svg>

@@ -1,0 +1,126 @@
+{
+  "app": {
+    "title": "RFID Tag Guide for QIDI BOX",
+    "subtitle": "FM11RF08S Chip Documentation"
+  },
+  "tabs": {
+    "write": "Chip Írás/Olvasás",
+    "specs": "Technikai Specifikációk",
+    "materials": "Anyagkódok",
+    "colors": "Színkódok",
+    "structure": "Memóriastruktúra"
+  },
+  "write": {
+    "title": "RFID Chip Írás és Olvasás",
+    "readerStatus": {
+      "title": "Olvasó Státusz",
+      "connection": "Kapcsolat:",
+      "reader": "Olvasó:",
+      "card": "Kártya:",
+      "refresh": "Státusz Frissítés",
+      "connected": "Csatlakoztatva",
+      "disconnected": "Nincs kapcsolat",
+      "cardPresent": "Kártya észlelve",
+      "noCard": "Nincs kártya",
+      "noReader": "Nincs RFID olvasó csatlakoztatva",
+      "noCardOnReader": "Nincs kártya az olvasón"
+    },
+    "read": {
+      "title": "Chip Olvasása",
+      "description": "Olvassa ki a chip aktuális értékeit",
+      "button": "Chip Olvasása",
+      "reading": "Olvasás...",
+      "results": {
+        "title": "Olvasott Adatok:",
+        "material": "Anyagkód:",
+        "color": "Színkód:",
+        "manufacturer": "Gyártói kód:",
+        "uid": "UID:",
+        "notAvailable": "Nem elérhető"
+      }
+    },
+    "write": {
+      "title": "Chip Írása",
+      "description": "Állítsa be az anyag- és színkódot, majd írja a chipre",
+      "materialLabel": "Anyagkód:",
+      "materialPlaceholder": "Válasszon anyagot...",
+      "colorLabel": "Színkód:",
+      "colorPlaceholder": "Válasszon színt...",
+      "manufacturerLabel": "Gyártói kód (opcionális, alapértelmezett: 1):",
+      "button": "Chip Írása",
+      "writing": "Írás...",
+      "success": "Sikeres!",
+      "error": "Hiba:",
+      "errorSelectMaterialColor": "Kérjük válasszon anyagot és színt!"
+    }
+  },
+  "specs": {
+    "rfInterface": "Radio Frequency (RF) Interface",
+    "protocol": "Communication Protocol",
+    "frequency": "Operating Frequency",
+    "baudRate": "Communication Baud Rate",
+    "distance": "Operating Distance",
+    "encryption": "Encryption Algorithm",
+    "memoryStructure": "EEPROM Memory Structure",
+    "memoryDescription": "The EEPROM is divided into <strong>16 sectors</strong>, each consisting of <strong>4 data blocks</strong>, with each block containing <strong>16 bytes</strong>.",
+    "manufacturerBlock": "Manufacturer Block",
+    "manufacturerBlockDesc": "Stores manufacturer code",
+    "controlBlock": "Control Block",
+    "controlBlockDesc": "Password A, Access Control, Password B",
+    "dataBlock": "Data Block",
+    "dataBlockDesc": "Stores user data",
+    "readOnly": "Read-only",
+    "readWrite": "Readable and writable",
+    "storage": "RFID Data Storage",
+    "storageDescription": "RFID data is stored in the <strong>4th data block</strong> (Sector 1, Block 0)",
+    "materialCode": "bit[0] - Material Code (1~50)",
+    "colorCode": "bit[1] - Color Code (1~24)",
+    "manufacturerCode": "bit[2] - Manufacturer Code (Default: 1)",
+    "hexEncoding": "Hexadecimal encoding"
+  },
+  "materials": {
+    "search": "Search materials...",
+    "title": "Material Codes"
+  },
+  "colors": {
+    "search": "Search colors...",
+    "title": "Color Codes"
+  },
+  "structure": {
+    "title": "Memory Layout",
+    "sectorStructure": "Sector Structure",
+    "sector": "Sector",
+    "sectors": "Sectors 2-15",
+    "block": "Block",
+    "manufacturer": "Manufacturer",
+    "data": "Data",
+    "control": "Control",
+    "rfidData": "RFID Data",
+    "legend": "Legend",
+    "manufacturerBlockLegend": "Manufacturer Block (Read-only)",
+    "dataBlockLegend": "Data Block (Read/Write)",
+    "controlBlockLegend": "Control Block (Read/Write)",
+    "rfidDataLocation": "RFID Data Storage Location"
+  },
+  "errors": {
+    "pcscConnection": "PC/SC kapcsolat hiba",
+    "readerList": "Olvasó listázás hiba",
+    "cardConnection": "Kártya kapcsolat hiba",
+    "keyLoad": "Kulcs betöltés hiba",
+    "authentication": "Autentikáció hiba",
+    "authenticationFailed": "Autentikáció sikertelen. Lehet, hogy más kulcsot használ a kártya.",
+    "readError": "Olvasás hiba",
+    "readLengthError": "Olvasási hiba: nem megfelelő adathossz",
+    "writeError": "Írás hiba",
+    "writeFailed": "Írás sikertelen",
+    "invalidMaterialCode": "Érvénytelen anyagkód (1-50)",
+    "invalidColorCode": "Érvénytelen színkód (1-24)"
+  },
+  "success": {
+    "writeSuccess": "Sikeresen írva: Anyag={material}, Szín={color}, Gyártó={manufacturer}"
+  },
+  "language": {
+    "select": "Nyelv kiválasztása"
+  }
+}
+

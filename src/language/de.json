@@ -1,0 +1,126 @@
+{
+  "app": {
+    "title": "RFID Tag Guide für QIDI BOX",
+    "subtitle": "FM11RF08S Chip Dokumentation"
+  },
+  "tabs": {
+    "write": "Chip Lesen/Schreiben",
+    "specs": "Technische Spezifikationen",
+    "materials": "Materialcodes",
+    "colors": "Farbcodes",
+    "structure": "Speicherstruktur"
+  },
+  "write": {
+    "title": "RFID Chip Lesen und Schreiben",
+    "readerStatus": {
+      "title": "Leser Status",
+      "connection": "Verbindung:",
+      "reader": "Leser:",
+      "card": "Karte:",
+      "refresh": "Status aktualisieren",
+      "connected": "Verbunden",
+      "disconnected": "Nicht verbunden",
+      "cardPresent": "Karte erkannt",
+      "noCard": "Keine Karte",
+      "noReader": "Kein RFID-Leser angeschlossen",
+      "noCardOnReader": "Keine Karte auf dem Leser"
+    },
+    "read": {
+      "title": "Chip Lesen",
+      "description": "Lesen Sie die aktuellen Werte des Chips",
+      "button": "Chip Lesen",
+      "reading": "Lesen...",
+      "results": {
+        "title": "Gelesene Daten:",
+        "material": "Materialcode:",
+        "color": "Farbcode:",
+        "manufacturer": "Herstellercode:",
+        "uid": "UID:",
+        "notAvailable": "Nicht verfügbar"
+      }
+    },
+    "write": {
+      "title": "Chip Schreiben",
+      "description": "Stellen Sie den Material- und Farbcode ein und schreiben Sie dann auf den Chip",
+      "materialLabel": "Materialcode:",
+      "materialPlaceholder": "Material auswählen...",
+      "colorLabel": "Farbcode:",
+      "colorPlaceholder": "Farbe auswählen...",
+      "manufacturerLabel": "Herstellercode (optional, Standard: 1):",
+      "button": "Chip Schreiben",
+      "writing": "Schreiben...",
+      "success": "Erfolg!",
+      "error": "Fehler:",
+      "errorSelectMaterialColor": "Bitte wählen Sie Material und Farbe aus!"
+    }
+  },
+  "specs": {
+    "rfInterface": "Funkfrequenz (RF) Schnittstelle",
+    "protocol": "Kommunikationsprotokoll",
+    "frequency": "Betriebsfrequenz",
+    "baudRate": "Kommunikations-Baudrate",
+    "distance": "Betriebsabstand",
+    "encryption": "Verschlüsselungsalgorithmus",
+    "memoryStructure": "EEPROM-Speicherstruktur",
+    "memoryDescription": "Das EEPROM ist in <strong>16 Sektoren</strong> unterteilt, jeder besteht aus <strong>4 Datenblöcken</strong>, wobei jeder Block <strong>16 Bytes</strong> enthält.",
+    "manufacturerBlock": "Herstellerblock",
+    "manufacturerBlockDesc": "Speichert Herstellercode",
+    "controlBlock": "Steuerblock",
+    "controlBlockDesc": "Passwort A, Zugriffskontrolle, Passwort B",
+    "dataBlock": "Datenblock",
+    "dataBlockDesc": "Speichert Benutzerdaten",
+    "readOnly": "Nur lesen",
+    "readWrite": "Lesbar und beschreibbar",
+    "storage": "RFID-Datenspeicherung",
+    "storageDescription": "RFID-Daten werden im <strong>4. Datenblock</strong> (Sektor 1, Block 0) gespeichert",
+    "materialCode": "bit[0] - Materialcode (1~50)",
+    "colorCode": "bit[1] - Farbcode (1~24)",
+    "manufacturerCode": "bit[2] - Herstellercode (Standard: 1)",
+    "hexEncoding": "Hexadezimale Kodierung"
+  },
+  "materials": {
+    "search": "Materialien suchen...",
+    "title": "Materialcodes"
+  },
+  "colors": {
+    "search": "Farben suchen...",
+    "title": "Farbcodes"
+  },
+  "structure": {
+    "title": "Speicherlayout",
+    "sectorStructure": "Sektorstruktur",
+    "sector": "Sektor",
+    "sectors": "Sektoren 2-15",
+    "block": "Block",
+    "manufacturer": "Hersteller",
+    "data": "Daten",
+    "control": "Steuerung",
+    "rfidData": "RFID-Daten",
+    "legend": "Legende",
+    "manufacturerBlockLegend": "Herstellerblock (Nur lesen)",
+    "dataBlockLegend": "Datenblock (Lesen/Schreiben)",
+    "controlBlockLegend": "Steuerblock (Lesen/Schreiben)",
+    "rfidDataLocation": "RFID-Datenspeicherort"
+  },
+  "errors": {
+    "pcscConnection": "PC/SC-Verbindungsfehler",
+    "readerList": "Leser-Listenfehler",
+    "cardConnection": "Kartenverbindungsfehler",
+    "keyLoad": "Schlüsselladefehler",
+    "authentication": "Authentifizierungsfehler",
+    "authenticationFailed": "Authentifizierung fehlgeschlagen. Die Karte verwendet möglicherweise einen anderen Schlüssel.",
+    "readError": "Lesefehler",
+    "readLengthError": "Lesefehler: ungültige Datenlänge",
+    "writeError": "Schreibfehler",
+    "writeFailed": "Schreiben fehlgeschlagen",
+    "invalidMaterialCode": "Ungültiger Materialcode (1-50)",
+    "invalidColorCode": "Ungültiger Farbcode (1-24)"
+  },
+  "success": {
+    "writeSuccess": "Erfolgreich geschrieben: Material={material}, Farbe={color}, Hersteller={manufacturer}"
+  },
+  "language": {
+    "select": "Sprache auswählen"
+  }
+}
+

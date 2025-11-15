@@ -1,0 +1,126 @@
+{
+  "app": {
+    "title": "RFID Tag Guide for QIDI BOX",
+    "subtitle": "FM11RF08S Chip Documentation"
+  },
+  "tabs": {
+    "write": "Chip Read/Write",
+    "specs": "Technical Specs",
+    "materials": "Material Codes",
+    "colors": "Color Codes",
+    "structure": "Memory Structure"
+  },
+  "write": {
+    "title": "RFID Chip Read and Write",
+    "readerStatus": {
+      "title": "Reader Status",
+      "connection": "Connection:",
+      "reader": "Reader:",
+      "card": "Card:",
+      "refresh": "Refresh Status",
+      "connected": "Connected",
+      "disconnected": "Not connected",
+      "cardPresent": "Card detected",
+      "noCard": "No card",
+      "noReader": "No RFID reader connected",
+      "noCardOnReader": "No card on reader"
+    },
+    "read": {
+      "title": "Read Chip",
+      "description": "Read the chip's current values",
+      "button": "Read Chip",
+      "reading": "Reading...",
+      "results": {
+        "title": "Read Data:",
+        "material": "Material Code:",
+        "color": "Color Code:",
+        "manufacturer": "Manufacturer Code:",
+        "uid": "UID:",
+        "notAvailable": "Not available"
+      }
+    },
+    "write": {
+      "title": "Write Chip",
+      "description": "Set the material and color code, then write to the chip",
+      "materialLabel": "Material Code:",
+      "materialPlaceholder": "Select material...",
+      "colorLabel": "Color Code:",
+      "colorPlaceholder": "Select color...",
+      "manufacturerLabel": "Manufacturer Code (optional, default: 1):",
+      "button": "Write Chip",
+      "writing": "Writing...",
+      "success": "Success!",
+      "error": "Error:",
+      "errorSelectMaterialColor": "Please select material and color!"
+    }
+  },
+  "specs": {
+    "rfInterface": "Radio Frequency (RF) Interface",
+    "protocol": "Communication Protocol",
+    "frequency": "Operating Frequency",
+    "baudRate": "Communication Baud Rate",
+    "distance": "Operating Distance",
+    "encryption": "Encryption Algorithm",
+    "memoryStructure": "EEPROM Memory Structure",
+    "memoryDescription": "The EEPROM is divided into <strong>16 sectors</strong>, each consisting of <strong>4 data blocks</strong>, with each block containing <strong>16 bytes</strong>.",
+    "manufacturerBlock": "Manufacturer Block",
+    "manufacturerBlockDesc": "Stores manufacturer code",
+    "controlBlock": "Control Block",
+    "controlBlockDesc": "Password A, Access Control, Password B",
+    "dataBlock": "Data Block",
+    "dataBlockDesc": "Stores user data",
+    "readOnly": "Read-only",
+    "readWrite": "Readable and writable",
+    "storage": "RFID Data Storage",
+    "storageDescription": "RFID data is stored in the <strong>4th data block</strong> (Sector 1, Block 0)",
+    "materialCode": "bit[0] - Material Code (1~50)",
+    "colorCode": "bit[1] - Color Code (1~24)",
+    "manufacturerCode": "bit[2] - Manufacturer Code (Default: 1)",
+    "hexEncoding": "Hexadecimal encoding"
+  },
+  "materials": {
+    "search": "Search materials...",
+    "title": "Material Codes"
+  },
+  "colors": {
+    "search": "Search colors...",
+    "title": "Color Codes"
+  },
+  "structure": {
+    "title": "Memory Layout",
+    "sectorStructure": "Sector Structure",
+    "sector": "Sector",
+    "sectors": "Sectors 2-15",
+    "block": "Block",
+    "manufacturer": "Manufacturer",
+    "data": "Data",
+    "control": "Control",
+    "rfidData": "RFID Data",
+    "legend": "Legend",
+    "manufacturerBlockLegend": "Manufacturer Block (Read-only)",
+    "dataBlockLegend": "Data Block (Read/Write)",
+    "controlBlockLegend": "Control Block (Read/Write)",
+    "rfidDataLocation": "RFID Data Storage Location"
+  },
+  "errors": {
+    "pcscConnection": "PC/SC connection error",
+    "readerList": "Reader listing error",
+    "cardConnection": "Card connection error",
+    "keyLoad": "Key load error",
+    "authentication": "Authentication error",
+    "authenticationFailed": "Authentication failed. The card may use a different key.",
+    "readError": "Read error",
+    "readLengthError": "Read error: invalid data length",
+    "writeError": "Write error",
+    "writeFailed": "Write failed",
+    "invalidMaterialCode": "Invalid material code (1-50)",
+    "invalidColorCode": "Invalid color code (1-24)"
+  },
+  "success": {
+    "writeSuccess": "Successfully written: Material={material}, Color={color}, Manufacturer={manufacturer}"
+  },
+  "language": {
+    "select": "Select Language"
+  }
+}
+
