@@ -174,7 +174,39 @@ A projekt automatikusan buildeli az alkalmazást különböző platformokra GitH
 - `.github/workflows/build.yml` - Build minden push/PR esetén
 - `.github/workflows/release.yml` - Release készítés tag esetén
 
-A buildelt alkalmazások a GitHub Actions artifacts-ban vagy releases-ben érhetők el.
+### Hogyan töltsd le a buildelt fájlokat?
+
+#### 1. **GitHub Actions Artifacts (Build workflow)**
+Minden build után a fájlok elérhetők GitHub Actions artifacts-ként:
+
+1. Menj a GitHub repository-ra
+2. Kattints a **"Actions"** fülre
+3. Válaszd ki a legutóbbi workflow futtatást
+4. Görgess le az oldal aljára, ahol az **"Artifacts"** szekcióban megtalálod:
+   - `qidi-rfid-guide-macos-latest-aarch64` (macOS Apple Silicon)
+   - `qidi-rfid-guide-macos-latest-x64` (macOS Intel)
+   - `qidi-rfid-guide-ubuntu-22.04-x64` (Linux)
+   - `qidi-rfid-guide-windows-latest-x64` (Windows)
+5. Kattints a letöltés gombra a megfelelő platform mellett
+
+**Fontos**: Az artifacts csak **90 napig** elérhetők, ezután törlődnek.
+
+#### 2. **GitHub Releases (Release workflow)**
+Hosszabb távú elérhetőséghez hozz létre egy release-t:
+
+1. Hozz létre egy tag-et:
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+
+2. A release workflow automatikusan lefut és létrehoz egy release-t
+3. A fájlok a **Releases** oldalon lesznek elérhetők:
+   - Menj a repository-ra → **"Releases"** fül
+   - Válaszd ki a legutóbbi release-t
+   - Töltsd le a megfelelő platform fájljait
+
+A release-ben lévő fájlok **véglegesen** elérhetők maradnak.
 
 ## Contributing
 
