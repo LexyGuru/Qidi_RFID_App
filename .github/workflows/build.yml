@@ -75,6 +75,7 @@ jobs:
           }
 
       - name: Build the app
+        id: build
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -84,12 +85,48 @@ jobs:
           includeRelease: true
           includeDebug: false
       
-      - name: Upload build artifacts
+      - name: List build output files
+        run: |
+          echo "Checking for build files..."
+          find src-tauri/target -name "*.dmg" -o -name "*.app" -o -name "*.exe" -o -name "*.msi" -o -name "*.deb" -o -name "*.AppImage" -o -name "*.tar.gz" 2>/dev/null | head -20 || echo "No build files found in expected location"
+          echo "Checking bundle directory..."
+          ls -la src-tauri/target/release/bundle/ 2>/dev/null || echo "Bundle directory not found"
+          echo "Checking all target directories..."
+          find src-tauri/target -type d -name "bundle" 2>/dev/null || echo "No bundle directories found"
+      
+      - name: Upload macOS artifacts
+        if: matrix.platform == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: qidi-rfid-guide-${{ matrix.platform }}-${{ matrix.args == '--target aarch64-apple-darwin' && 'aarch64' || matrix.args == '--target x86_64-apple-darwin' && 'x64' || 'x64' }}
+          name: qidi-rfid-guide-${{ matrix.args == '--target aarch64-apple-darwin' && 'macos-aarch64' || 'macos-x64' }}
           path: |
-            src-tauri/target/release/bundle/**
+            src-tauri/target/**/*.dmg
+            src-tauri/target/**/*.app.tar.gz
+            src-tauri/target/**/*.app
+          if-no-files-found: warn
+          retention-days: 90
+      
+      - name: Upload Windows artifacts
+        if: matrix.platform == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: qidi-rfid-guide-windows-x64
+          path: |
+            src-tauri/target/**/*.exe
+            src-tauri/target/**/*.msi
+            src-tauri/target/**/*.zip
+          if-no-files-found: warn
+          retention-days: 90
+      
+      - name: Upload Linux artifacts
+        if: matrix.platform == 'ubuntu-22.04'
+        uses: actions/upload-artifact@v4
+        with:
+          name: qidi-rfid-guide-linux-x64
+          path: |
+            src-tauri/target/**/*.deb
+            src-tauri/target/**/*.AppImage
+            src-tauri/target/**/*.tar.gz
           if-no-files-found: warn
           retention-days: 90
 
