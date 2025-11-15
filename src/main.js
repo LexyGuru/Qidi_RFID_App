@@ -65,27 +65,15 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     });
 });
 
-// Auto-refresh specs when specs tab is active
+// Load specs when specs tab is active (no auto-refresh needed - specs are static)
 function startSpecsAutoRefresh() {
     // Clear existing interval if any
     stopSpecsAutoRefresh();
     
-    // Load specs immediately
+    // Load specs immediately (only once, no need to refresh - these are static specifications)
     loadSpecs();
     
-    // Refresh every 2 seconds (2000ms) - adjust as needed
-    specsRefreshInterval = setInterval(() => {
-        const specsTab = document.getElementById('specs');
-        if (specsTab && specsTab.classList.contains('active')) {
-            console.log('Auto-refreshing specs...');
-            loadSpecs();
-        } else {
-            // Tab is not active, stop refreshing
-            stopSpecsAutoRefresh();
-        }
-    }, 2000);
-    
-    console.log('Specs auto-refresh started');
+    console.log('Specs loaded (static data - no auto-refresh needed)');
 }
 
 function stopSpecsAutoRefresh() {
