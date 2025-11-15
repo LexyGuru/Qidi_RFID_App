@@ -54,6 +54,16 @@ jobs:
       - name: Install frontend dependencies
         run: npm install
 
+      - name: Verify Windows icon exists
+        if: matrix.platform == 'windows-latest'
+        run: |
+          if not exist src-tauri\icons\icon.ico (
+            echo "icon.ico not found, generating..."
+            powershell -Command "$img = [System.Drawing.Image]::FromFile('src-tauri/icons/icon.png'); $bitmap = New-Object System.Drawing.Bitmap($img); $icon = [System.Drawing.Icon]::FromHandle($bitmap.GetHicon()); $fs = New-Object System.IO.FileStream('src-tauri/icons/icon.ico', [System.IO.FileMode]::Create); $icon.Save($fs); $fs.Close(); $img.Dispose(); $bitmap.Dispose(); $icon.Dispose()"
+          ) else (
+            echo "icon.ico already exists"
+          )
+
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
         env:
