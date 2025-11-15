@@ -139,9 +139,16 @@ To add a new language:
 1. Create a new JSON file in `src/language/` (e.g., `fr.json` for French)
 2. Copy the structure from an existing language file (e.g., `en.json`)
 3. Translate all the text values
-4. The application will automatically detect and display the new language
+4. **Update `src/language/languages.json`** to include the new language code in the `availableLanguages` array:
+   ```json
+   {
+     "availableLanguages": ["hu", "en", "de", "fr"],
+     "defaultLanguage": "hu"
+   }
+   ```
+5. The application will verify that the language file exists and display it in the language selector
 
-The language selector dynamically discovers all available language files in the `language/` directory.
+**Important**: The language system verifies that each configured language file actually exists. Only languages listed in `languages.json` AND having a corresponding `.json` file will be displayed.
 
 ## License
 

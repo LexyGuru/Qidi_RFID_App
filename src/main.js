@@ -503,29 +503,46 @@ async function populateSelects() {
 
 // Initialize language selector
 async function initLanguageSelector() {
-    const availableLanguages = await window.i18n.initI18n();
-    const languageSelect = document.getElementById('language-select');
-    
-    if (!languageSelect) {
-        console.error('Language select not found!');
-        return;
+    try {
+        // Verify language files exist
+        const verified = await window.i18n.verifyLanguageFiles();
+        if (!verified) {
+            console.warn('Some language files are missing. Check languages.json configuration.');
+        }
+        
+        const availableLanguages = await window.i18n.initI18n();
+        const languageSelect = document.getElementById('language-select');
+        
+        if (!languageSelect) {
+            console.error('Language select not found!');
+            return;
+        }
+        
+        // Only show languages that are actually available
+        if (availableLanguages.length === 0) {
+            console.error('No languages available!');
+            languageSelect.style.display = 'none';
+            return;
+        }
+        
+        const languageOptions = availableLanguages.map(lang => ({
+            value: lang,
+            text: window.i18n.getAvailableLanguages().find(l => l.code === lang)?.name || lang.toUpperCase()
+        }));
+        
+        const languageSelectControl = initCustomSelect(languageSelect, languageOptions, (value) => {
+            console.log('Language changed to:', value);
+            window.i18n.setLanguage(value);
+        });
+        
+        // Set current language
+        const currentLang = window.i18n.getCurrentLanguage();
+        languageSelectControl.setValue(currentLang);
+        
+        console.log(`Language selector initialized with ${availableLanguages.length} language(s)`);
+    } catch (error) {
+        console.error('Error initializing language selector:', error);
     }
-    
-    const languageOptions = availableLanguages.map(lang => ({
-        value: lang,
-        text: window.i18n.getAvailableLanguages().find(l => l.code === lang)?.name || lang.toUpperCase()
-    }));
-    
-    const languageSelectControl = initCustomSelect(languageSelect, languageOptions, (value) => {
-        console.log('Language changed to:', value);
-        window.i18n.setLanguage(value);
-    });
-    
-    // Set current language
-    const currentLang = window.i18n.getCurrentLanguage();
-    languageSelectControl.setValue(currentLang);
-    
-    console.log('Language selector initialized');
 }
 
 // Initialize app function
