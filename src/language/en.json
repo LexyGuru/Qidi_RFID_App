@@ -61,6 +61,8 @@
     "distance": "Operating Distance",
     "encryption": "Encryption Algorithm",
     "loading": "Loading...",
+    "autoRefresh": "Auto-refresh active",
+    "refreshStatus": "Refresh:",
     "memoryStructure": "EEPROM Memory Structure",
     "memoryDescription": "The EEPROM is divided into <strong>16 sectors</strong>, each consisting of <strong>4 data blocks</strong>, with each block containing <strong>16 bytes</strong>.",
     "manufacturerBlock": "Manufacturer Block",

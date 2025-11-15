@@ -139,7 +139,12 @@
             <!-- Technical Specifications Tab -->
             <div id="specs" class="tab-content">
                 <section class="specs-section">
-                    <h2 data-i18n="specs.rfInterface">Radio Frequency (RF) Interface</h2>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 data-i18n="specs.rfInterface">Radio Frequency (RF) Interface</h2>
+                        <div id="specs-refresh-status" style="font-size: 0.85rem; color: var(--text-secondary); opacity: 0.7;">
+                            <span data-i18n="specs.autoRefresh">Auto-refresh active</span>
+                        </div>
+                    </div>
                     <div class="specs-grid">
                         <div class="spec-card">
                             <h3 data-i18n="specs.protocol">Communication Protocol</h3>

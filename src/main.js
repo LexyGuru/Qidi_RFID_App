@@ -34,6 +34,8 @@ waitForTauri().then(() => {
 });
 
 // Tab switching
+let specsRefreshInterval = null;
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
     console.log('Setting up tab button:', btn.getAttribute('data-tab'));
     btn.addEventListener('click', () => {
@@ -50,11 +52,49 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
         if (content) {
             content.classList.add('active');
             console.log('Tab activated:', tabId);
+            
+            // Start auto-refresh for specs tab
+            if (tabId === 'specs') {
+                startSpecsAutoRefresh();
+            } else {
+                stopSpecsAutoRefresh();
+            }
         } else {
             console.error('Tab content not found:', tabId);
         }
     });
 });
+
+// Auto-refresh specs when specs tab is active
+function startSpecsAutoRefresh() {
+    // Clear existing interval if any
+    stopSpecsAutoRefresh();
+    
+    // Load specs immediately
+    loadSpecs();
+    
+    // Refresh every 2 seconds (2000ms) - adjust as needed
+    specsRefreshInterval = setInterval(() => {
+        const specsTab = document.getElementById('specs');
+        if (specsTab && specsTab.classList.contains('active')) {
+            console.log('Auto-refreshing specs...');
+            loadSpecs();
+        } else {
+            // Tab is not active, stop refreshing
+            stopSpecsAutoRefresh();
+        }
+    }, 2000);
+    
+    console.log('Specs auto-refresh started');
+}
+
+function stopSpecsAutoRefresh() {
+    if (specsRefreshInterval) {
+        clearInterval(specsRefreshInterval);
+        specsRefreshInterval = null;
+        console.log('Specs auto-refresh stopped');
+    }
+}
 
 // Load technical specs
 async function loadSpecs() {
@@ -569,7 +609,8 @@ async function initApp() {
         await initLanguageSelector();
         
         console.log('Loading specs...');
-        loadSpecs();
+        // Don't auto-refresh on initial load, only when specs tab is opened
+        // loadSpecs(); // Will be called when specs tab is activated
         
         console.log('Loading materials...');
         loadMaterials();
@@ -623,6 +664,12 @@ async function initApp() {
             console.log('Auto-refreshing reader status...');
             checkReaderStatus();
         }, 5000);
+        
+        // Check if specs tab is initially active and start auto-refresh
+        const specsTab = document.getElementById('specs');
+        if (specsTab && specsTab.classList.contains('active')) {
+            startSpecsAutoRefresh();
+        }
         
         console.log('Initialization complete');
     } catch (error) {

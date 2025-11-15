@@ -61,6 +61,8 @@
     "distance": "Betriebsabstand",
     "encryption": "Verschlüsselungsalgorithmus",
     "loading": "Laden...",
+    "autoRefresh": "Automatische Aktualisierung aktiv",
+    "refreshStatus": "Aktualisierung:",
     "memoryStructure": "EEPROM-Speicherstruktur",
     "memoryDescription": "Das EEPROM ist in <strong>16 Sektoren</strong> unterteilt, jeder besteht aus <strong>4 Datenblöcken</strong>, wobei jeder Block <strong>16 Bytes</strong> enthält.",
     "manufacturerBlock": "Herstellerblock",

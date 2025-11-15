@@ -61,6 +61,8 @@
     "distance": "Működési Távolság",
     "encryption": "Titkosítási Algoritmus",
     "loading": "Betöltés...",
+    "autoRefresh": "Automatikus frissítés aktív",
+    "refreshStatus": "Frissítés:",
     "memoryStructure": "EEPROM Memóriastruktúra",
     "memoryDescription": "Az EEPROM <strong>16 szektorra</strong> van osztva, mindegyik <strong>4 adatblokkból</strong> áll, és minden blokk <strong>16 bájtot</strong> tartalmaz.",
     "manufacturerBlock": "Gyártói Blokk",
