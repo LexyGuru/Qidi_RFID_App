@@ -323,12 +323,35 @@ async function readChip() {
         const colors = await invoke('get_color_codes');
         const color = colors.find(c => c.code === data.color_code);
         
-        document.getElementById('read-material').textContent = 
-            `${data.material_code}${material ? ' - ' + material.name : ''}`;
-        document.getElementById('read-color').textContent = 
-            `${data.color_code}${color ? ' - ' + color.name : ''}`;
-        document.getElementById('read-manufacturer').textContent = data.manufacturer_code.toString();
-        document.getElementById('read-uid').textContent = data.uid || window.i18n.t('write.read.results.notAvailable');
+        // Update read result elements with null checks
+        const readMaterialEl = document.getElementById('read-material');
+        const readColorEl = document.getElementById('read-color');
+        const readManufacturerEl = document.getElementById('read-manufacturer');
+        const readUidEl = document.getElementById('read-uid');
+        
+        if (readMaterialEl) {
+            readMaterialEl.textContent = `${data.material_code}${material ? ' - ' + material.name : ''}`;
+        } else {
+            console.error('read-material element not found');
+        }
+        
+        if (readColorEl) {
+            readColorEl.textContent = `${data.color_code}${color ? ' - ' + color.name : ''}`;
+        } else {
+            console.error('read-color element not found');
+        }
+        
+        if (readManufacturerEl) {
+            readManufacturerEl.textContent = data.manufacturer_code.toString();
+        } else {
+            console.error('read-manufacturer element not found');
+        }
+        
+        if (readUidEl) {
+            readUidEl.textContent = data.uid || window.i18n.t('write.read.results.notAvailable');
+        } else {
+            console.error('read-uid element not found');
+        }
         
         resultBox.style.display = 'block';
         resultBox.className = 'result-box success';
