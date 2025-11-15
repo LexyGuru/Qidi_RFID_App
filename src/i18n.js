@@ -194,6 +194,16 @@ async function setLanguage(lang) {
         }
     }
     
+    // Reload specs if specs tab is active (to refresh the data after language change)
+    const specsTab = document.getElementById('specs');
+    if (specsTab && specsTab.classList.contains('active')) {
+        // Check if loadSpecs function exists and call it
+        if (typeof window.loadSpecs === 'function') {
+            console.log('Reloading specs after language change...');
+            window.loadSpecs();
+        }
+    }
+    
     // Save to localStorage
     localStorage.setItem('preferredLanguage', lang);
     

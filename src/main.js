@@ -84,31 +84,43 @@ function stopSpecsAutoRefresh() {
     }
 }
 
-// Load technical specs
-async function loadSpecs() {
+// Load technical specs (expose globally for i18n to call)
+window.loadSpecs = async function loadSpecs() {
     try {
         // Set loading text
         const loadingText = window.i18n ? window.i18n.t('specs.loading') : 'Loading...';
-        document.getElementById('protocol').textContent = loadingText;
-        document.getElementById('frequency').textContent = loadingText;
-        document.getElementById('baud-rate').textContent = loadingText;
-        document.getElementById('distance').textContent = loadingText;
-        document.getElementById('encryption').textContent = loadingText;
+        const protocolEl = document.getElementById('protocol');
+        const frequencyEl = document.getElementById('frequency');
+        const baudRateEl = document.getElementById('baud-rate');
+        const distanceEl = document.getElementById('distance');
+        const encryptionEl = document.getElementById('encryption');
+        
+        if (protocolEl) protocolEl.textContent = loadingText;
+        if (frequencyEl) frequencyEl.textContent = loadingText;
+        if (baudRateEl) baudRateEl.textContent = loadingText;
+        if (distanceEl) distanceEl.textContent = loadingText;
+        if (encryptionEl) encryptionEl.textContent = loadingText;
         
         const specs = await invoke('get_rfid_specs');
-        document.getElementById('protocol').textContent = specs.protocol;
-        document.getElementById('frequency').textContent = specs.frequency;
-        document.getElementById('baud-rate').textContent = specs.baud_rate;
-        document.getElementById('distance').textContent = specs.operating_distance;
-        document.getElementById('encryption').textContent = specs.encryption;
+        if (protocolEl) protocolEl.textContent = specs.protocol;
+        if (frequencyEl) frequencyEl.textContent = specs.frequency;
+        if (baudRateEl) baudRateEl.textContent = specs.baud_rate;
+        if (distanceEl) distanceEl.textContent = specs.operating_distance;
+        if (encryptionEl) encryptionEl.textContent = specs.encryption;
     } catch (error) {
         console.error('Error loading specs:', error);
         const errorText = window.i18n ? window.i18n.t('errors.readError') : 'Error loading';
-        document.getElementById('protocol').textContent = errorText;
-        document.getElementById('frequency').textContent = errorText;
-        document.getElementById('baud-rate').textContent = errorText;
-        document.getElementById('distance').textContent = errorText;
-        document.getElementById('encryption').textContent = errorText;
+        const protocolEl = document.getElementById('protocol');
+        const frequencyEl = document.getElementById('frequency');
+        const baudRateEl = document.getElementById('baud-rate');
+        const distanceEl = document.getElementById('distance');
+        const encryptionEl = document.getElementById('encryption');
+        
+        if (protocolEl) protocolEl.textContent = errorText;
+        if (frequencyEl) frequencyEl.textContent = errorText;
+        if (baudRateEl) baudRateEl.textContent = errorText;
+        if (distanceEl) distanceEl.textContent = errorText;
+        if (encryptionEl) encryptionEl.textContent = errorText;
     }
 }
 
