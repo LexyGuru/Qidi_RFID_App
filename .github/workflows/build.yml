@@ -61,5 +61,4 @@ jobs:
           projectPath: ./
           args: ${{ matrix.args }}
           buildOnly: true
-          artifactName: 'qidi-rfid-guide-${{ matrix.platform }}-${{ matrix.args == '--target aarch64-apple-darwin' && 'aarch64' || matrix.args == '--target x86_64-apple-darwin' && 'x64' || 'x64' }}'
 
