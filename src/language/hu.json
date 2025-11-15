@@ -1,7 +1,6 @@
 {
   "app": {
-    "title": "RFID Tag Guide for QIDI BOX",
-    "subtitle": "FM11RF08S Chip Documentation"
+    "title": "RFID Tag Útmutató QIDI BOX-hoz"
   },
   "tabs": {
     "write": "Chip Írás/Olvasás",

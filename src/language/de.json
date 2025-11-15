@@ -1,7 +1,6 @@
 {
   "app": {
-    "title": "RFID Tag Guide für QIDI BOX",
-    "subtitle": "FM11RF08S Chip Dokumentation"
+    "title": "RFID Tag Anleitung für QIDI BOX"
   },
   "tabs": {
     "write": "Chip Lesen/Schreiben",
