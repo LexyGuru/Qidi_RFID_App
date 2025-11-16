@@ -385,9 +385,18 @@ async function writeChip() {
     
     const materialCode = parseInt(materialSelectControl.getValue());
     const colorCode = parseInt(colorSelectControl.getValue());
-    const manufacturerCode = manufacturerInput.value ? parseInt(manufacturerInput.value) : null;
+    const manufacturerInputValue = manufacturerInput.value;
+    const manufacturerCode = manufacturerInputValue && manufacturerInputValue.trim() !== '' 
+        ? parseInt(manufacturerInputValue) 
+        : null;
     
-    console.log('Write parameters:', { materialCode, colorCode, manufacturerCode });
+    console.log('Write parameters:', { 
+        materialCode, 
+        colorCode, 
+        manufacturerCode,
+        manufacturerInputValue: manufacturerInputValue,
+        manufacturerInputRaw: manufacturerInput.value
+    });
     
     if (!materialCode || !colorCode) {
         console.warn('Missing material or color code');

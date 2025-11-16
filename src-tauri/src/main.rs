@@ -267,6 +267,10 @@ fn read_chip() -> Result<ChipData, String> {
     
     let data = &read_result[..16];
     
+    println!("[RUST] Read data block: {:?}", data);
+    println!("[RUST] Material code: {}, Color code: {}, Manufacturer code: {}", 
+             data[0], data[1], data[2]);
+    
     Ok(ChipData {
         material_code: data[0],
         color_code: data[1],
@@ -330,17 +334,38 @@ fn write_chip(material_code: u8, color_code: u8, manufacturer_code: Option<u8>) 
     // Fill rest with zeros
     data.extend(vec![0u8; 13]);
     
+    println!("[RUST] Prepared data block: {:?}", data);
+    println!("[RUST] Data bytes: [0]={} (material), [1]={} (color), [2]={} (manufacturer)", 
+             data[0], data[1], data[2]);
+    
     // Write block 4 (Sector 1, Block 0)
     let mut write_cmd = vec![0xFF, 0xD6, 0x00, ABSOLUTE_BLOCK, 0x10];
     write_cmd.extend_from_slice(&data);
     
+    println!("[RUST] Write command: {:?}", write_cmd);
+    println!("[RUST] Writing to absolute block: {}", ABSOLUTE_BLOCK);
+    
     let mut recv_buffer = [0u8; 256];
     let write_result = card.transmit(&write_cmd, &mut recv_buffer)
-        .map_err(|e| format!("Írás hiba: {}", e))?;
+        .map_err(|e| {
+            println!("[RUST] Write transmit error: {}", e);
+            format!("Írás hiba: {}", e)
+        })?;
+    
+    println!("[RUST] Write result: {:?}", write_result);
     
     if write_result.len() < 2 || write_result[write_result.len() - 2] != 0x90 {
+        println!("[RUST] Write failed - status code: {:?}", 
+                 if write_result.len() >= 2 { 
+                     format!("{:02X} {:02X}", write_result[write_result.len() - 2], write_result[write_result.len() - 1])
+                 } else {
+                     "too short".to_string()
+                 });
         return Err("Írás sikertelen".to_string());
     }
+    
+    println!("[RUST] Write successful! Written: Material={}, Color={}, Manufacturer={}", 
+             material_code, color_code, mfg_code);
     
     Ok(format!("Material={}, Color={}, Manufacturer={}", material_code, color_code, mfg_code))
 }
