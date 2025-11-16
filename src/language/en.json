@@ -46,7 +46,7 @@
       "colorLabel": "Color Code:",
       "colorPlaceholder": "Select color...",
       "manufacturerLabel": "Manufacturer Code (optional, default: 1):",
-      "manufacturerDescription": "Identifier for the material manufacturer (1-255). Examples: 1 = QIDI official, 2 = General, etc. QIDI printers use this to identify the source of the material.",
+      "manufacturerDescription": "Identifier for the material manufacturer (1-255). Note: QIDI Studio software currently does not use this field for manufacturer identification - it always displays \"QIDI\" as the manufacturer. This field is only stored on the RFID chip but does not affect the manufacturer name displayed in QIDI Studio.",
       "button": "Write Chip",
       "writing": "Writing...",
       "success": "Success!",

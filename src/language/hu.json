@@ -46,7 +46,7 @@
       "colorLabel": "Színkód:",
       "colorPlaceholder": "Válasszon színt...",
       "manufacturerLabel": "Gyártói kód (opcionális, alapértelmezett: 1):",
-      "manufacturerDescription": "Az anyag gyártójának azonosítója (1-255). Példák: 1 = QIDI hivatalos, 2 = General, stb. A QIDI nyomtatók ezt használják az anyag forrásának azonosításához.",
+      "manufacturerDescription": "Az anyag gyártójának azonosítója (1-255). Megjegyzés: A QIDI Studio szoftver jelenleg nem használja ezt a mezőt a gyártó azonosításához - mindig \"QIDI\"-ként jeleníti meg a gyártót. Ez a mező csak az RFID chipen tárolódik, de nem befolyásolja a QIDI Studio-ban megjelenő gyártó nevét.",
       "button": "Chip Írása",
       "writing": "Írás...",
       "success": "Sikeres!",
