@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "RFID Tag Útmutató QIDI BOX-hoz",
-    "wikiLink": "📚 QIDI Hivatalos Wiki"
+    "wikiLink": "📚 QIDI Hivatalos Wiki - RFID Dokumentáció"
   },
   "tabs": {
     "write": "Chip Írás/Olvasás",

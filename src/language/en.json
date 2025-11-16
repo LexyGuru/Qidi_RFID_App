@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "RFID Tag Guide for QIDI BOX",
-    "wikiLink": "📚 QIDI Official Wiki"
+    "wikiLink": "📚 QIDI Official Wiki - RFID Documentation"
   },
   "tabs": {
     "write": "Chip Read/Write",
