@@ -46,7 +46,7 @@
       "colorLabel": "Farbcode:",
       "colorPlaceholder": "Farbe auswählen...",
       "manufacturerLabel": "Herstellercode (optional, Standard: 1):",
-      "manufacturerDescription": "Kennung für den Materialhersteller (1-255). Beispiele: 1 = QIDI offiziell, 2 = General, 3 = Sunlu, usw. QIDI-Drucker verwenden dies zur Identifizierung der Materialquelle.",
+      "manufacturerDescription": "Kennung für den Materialhersteller (1-255). Beispiele: 1 = QIDI offiziell, 2 = General, usw. QIDI-Drucker verwenden dies zur Identifizierung der Materialquelle.",
       "button": "Chip Schreiben",
       "writing": "Schreiben...",
       "success": "Erfolg!",
