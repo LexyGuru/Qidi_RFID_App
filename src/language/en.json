@@ -46,7 +46,7 @@
       "colorLabel": "Color Code:",
       "colorPlaceholder": "Select color...",
       "manufacturerLabel": "Manufacturer Code (optional, default: 1):",
-      "manufacturerDescription": "Identifier for the material manufacturer (1-255). QIDI printers use this to identify the source of the material.",
+      "manufacturerDescription": "Identifier for the material manufacturer (1-255). Examples: 1 = QIDI official, 2 = General, 3 = Sunlu, etc. QIDI printers use this to identify the source of the material.",
       "button": "Write Chip",
       "writing": "Writing...",
       "success": "Success!",

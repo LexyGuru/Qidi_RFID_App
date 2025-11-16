@@ -46,7 +46,7 @@
       "colorLabel": "Színkód:",
       "colorPlaceholder": "Válasszon színt...",
       "manufacturerLabel": "Gyártói kód (opcionális, alapértelmezett: 1):",
-      "manufacturerDescription": "Az anyag gyártójának azonosítója (1-255). A QIDI nyomtatók ezt használják az anyag forrásának azonosításához.",
+      "manufacturerDescription": "Az anyag gyártójának azonosítója (1-255). Példák: 1 = QIDI hivatalos, 2 = General, 3 = Sunlu, stb. A QIDI nyomtatók ezt használják az anyag forrásának azonosításához.",
       "button": "Chip Írása",
       "writing": "Írás...",
       "success": "Sikeres!",
