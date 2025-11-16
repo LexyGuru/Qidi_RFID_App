@@ -48,6 +48,25 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
+.wiki-link {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.wiki-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wiki-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 .subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
