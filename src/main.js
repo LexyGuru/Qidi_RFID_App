@@ -347,6 +347,13 @@ async function readChip() {
             console.error('read-manufacturer element not found');
         }
         
+        // Update manufacturer input field with read value
+        const manufacturerInput = document.getElementById('manufacturer-input');
+        if (manufacturerInput) {
+            manufacturerInput.value = data.manufacturer_code.toString();
+            console.log('Updated manufacturer input field to:', data.manufacturer_code);
+        }
+        
         if (readUidEl) {
             readUidEl.textContent = data.uid || window.i18n.t('write.read.results.notAvailable');
         } else {
